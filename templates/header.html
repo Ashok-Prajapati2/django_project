@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Omnifood is a AI powered food subscription that will make you eat healthy again, 365 days per year, It's tailored to your personal tastes and nutritional needs." />
+    <link rel="icon" href="/static/img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="/static/css/general.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/queries.css" />
+    <title>Omnifood &mdash; Never cook again!</title>
+
+    <!-- JS LIBRARIES -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script defer src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js"></script>
+
+    <!-- CUSTOM JS -->
+    <script defer src="/static/js/script.js"></script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <a href="/"><img class="logo" src="/static/img/omnifood-logo.png" alt="Omnifood" /></a>
+
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li class = {% if request.path == '/about/'%} active {% endif %}>
+            <a class="main-nav-link" href="{% url 'about-us' %}">How it works</a>
+          </li>
+          <li class = {% if request.path == '/'%} active {% endif %} >
+            <a class="main-nav-link" href="#meals">Meals</a>
+          </li>
+          <li>
+            <a class="main-nav-link" href="#testimonials">Testimonials</a>
+          </li>
+          <li>
+            <a class="main-nav-link" href="/form/">Pricing</a>
+          </li>
+          <li class = {% if request.path == '/about/'%} active {% endif %}>
+            <a class="main-nav-link nav-cta" href="/about">About</a>
+          </li>
+          <li class = {% if request.path == '/'%} active {% endif %}>
+            <a class="main-nav-link nav-cta" href="#cta">Try for free</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
+    </header>
+  </body>
+</html>
