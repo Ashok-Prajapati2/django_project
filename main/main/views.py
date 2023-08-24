@@ -1,5 +1,5 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.shortcuts import render ,redirect
 
 
 def homepage(request):
@@ -7,19 +7,21 @@ def homepage(request):
     return render(request, "index.html")
 
 
-def form(request):
-    
-    return render(request,"form.html")
-
-
 def about(request):
     
     return render(request, "about.html")
 
-def user_login(request):
-        if request.method == 'GET'
-            saved_username = request.GET.get('email')  # Retrieve the 'email' parameter from the GET request
-            saved_pass = request.GET.get('text')   # Retrieve the 'text' parameter from the GET request
-        
+def form(request):
+        data = {}
+        if request.method == 'POST':
+            saved_username = request.POST['email']  # Retrieve the 'email' parameter from the GET request
+            saved_pass = request.POST['password']  # Retrieve the 'text' parameter from the GET request
+            data = { 
+                'username': saved_username,
+                'passwd':saved_pass,
+                }
+            # return HttpResponseRedirect("/about/")
+    
+        return render(request, "form.html", data)
 
-        return render(request, "form.html", {'username': saved_username , 'passwd':saved_pass})
+

@@ -43,7 +43,7 @@
       }
       
 </style>
-<div class="form">
+{% comment %} <div class="form">
     <form method="get" >
       <div class="inputBox">
         <input type="text" name="email" value="" />
@@ -57,6 +57,28 @@
     </form>
     <input type="text" name="username" value="{{ username }}" /> <!-- Added input field for username -->
     <input type="text" name="username" value="{{ passwd }}" />
+  </div>
+  
+  
+</div> {% endcomment %}
+
+<div class="form">
+  
+    <form  method="post" >
+      {% csrf_token %}
+      <div class="inputBox">
+        <input type="text" name="email" value="{{ username }}" />
+        <label>Email</label> <!-- Changed 'Username' to 'Email' for clarity -->
+      </div>
+      <div class="inputBox">
+        <input type="text" name="password" value="{{ passwd }}" />
+        <label>Password</label>
+      </div>
+      <input type="submit" name="sign-in" value="Sign In" />
+      <br><hr>
+      <input type="text" name="usernames" value="{{ username }}" /> <!-- Added input field for username -->
+      <input type="text" name="usernames" value="{{ passwd }}" />
+    </form>
   </div>
   
   

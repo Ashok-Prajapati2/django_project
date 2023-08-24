@@ -33,7 +33,7 @@
       <nav class="main-nav">
         <ul class="main-nav-list">
           <li class = {% if request.path == '/about/'%} active {% endif %}>
-            <a class="main-nav-link" href="{% url 'about-us' %}">How it works</a>
+            <a class="main-nav-link" href="{% url 'about' %}">How it works</a>
           </li>
           <li class = {% if request.path == '/'%} active {% endif %} >
             <a class="main-nav-link" href="#meals">Meals</a>
