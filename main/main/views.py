@@ -1,14 +1,18 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render ,redirect
+import json
 
 
 def homepage(request):
     
     return render(request, "index.html")
 
-
 def about(request):
-    
+    if request.method == "GET":
+        data = request.GET.get('data')
+       
+        return render(request, "about.html",{'data':data})
+
     return render(request, "about.html")
 
 def form(request):
@@ -20,7 +24,8 @@ def form(request):
                 'username': saved_username,
                 'passwd':saved_pass,
                 }
-            # return HttpResponseRedirect("/about/")
+            url = "/about/?data={}".format(data)
+            return HttpResponseRedirect(url)
     
         return render(request, "form.html", data)
 
