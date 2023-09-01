@@ -1,94 +1,84 @@
-# django_project
-# ProjectForge: Django Project with Git Integration
 
-ProjectForge is an advanced Django-powered project management platform with seamless Git integration, designed to streamline collaboration and enhance software development workflows.
+# Django Calculator Web App
+
+![Calculator](https://raw.githubusercontent.com/Ashok-Prajapati2/django_project/main/screenshot.png)
+
+This is a simple web application built with Django that provides a calculator interface. Users can perform basic arithmetic operations such as addition, subtraction, multiplication, and division.
 
 ## Features
 
-- Git Integration: Manage code repositories, branches, and changes directly within the platform.
-- Agile Task Management: Visualize and manage tasks using customizable agile task boards.
-- Real-time Collaboration: Collaborate on code changes and tasks in real-time with inline comments.
-- User Authentication: Robust user authentication and role-based access control for secure data handling.
-- RESTful APIs: Integrate with external tools and services using RESTful APIs.
-- CI/CD Pipelines: Set up automated testing and deployment pipelines for efficient development.
-- Customizable Workflows: Define workflows that match your unique development processes.
-- Analytics and Reporting: Access project analytics and reports for data-driven decision-making.
+- Perform basic arithmetic operations.
+- Clear the input field.
+- Handle form submissions.
 
-## Getting Started
+## Prerequisites
 
-### Prerequisites
+Before you begin, ensure you have met the following requirements:
 
-- Python 3.x
-- Django 3.x
-- Git
+- Python (3.x recommended)
+- Django (3.x recommended)
 
-### Installation
+## Installation
 
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-username/projectforge.git
+1. Clone the repository to your local machine:
 
-    Create and activate a virtual environment:
+   ```bash
+   git clone https://github.com/Ashok-Prajapati2/django_project.git
 
-    sh
+    Navigate to the project directory:
 
-python3 -m venv venv
-source venv/bin/activate
+    bash
 
-Install dependencies:
+cd django_project
 
-sh
+Install the required Python packages using pip:
 
-pip install -r requirements.txt
+bash
 
-Apply migrations:
+    pip install -r requirements.txt
 
-sh
+Usage
 
-python manage.py migrate
+    Start the Django development server:
 
-Run the development server:
-
-sh
+    bash
 
     python manage.py runserver
 
-    Access the platform at http://localhost:8000 in your web browser.
+    Open your web browser and visit http://localhost:8000/calculator/ to access the calculator.
+
+    Enter numbers and operators (e.g., 1+2*3) in the input field.
+
+    Click the "=" button to calculate the result.
+
+
+How It Works
+
+    The application uses Django views to handle different pages:
+        homepage - Renders the homepage with a calculator.
+        about - Renders the about page with optional data.
+        form - Handles form submissions and redirects to the about page.
+        submitform - Handles form submissions and returns the username.
+        calculator - Performs calculations based on user input.
 
 Contributing
 
-We welcome contributions to ProjectForge! To contribute, follow these steps:
+If you'd like to contribute to this project, please follow these guidelines:
 
     Fork the repository.
+    Create a new branch (git checkout -b feature/your-feature-name).
+    Make your changes and commit them (git commit -m 'Add some feature').
+    Push to the branch (git push origin feature/your-feature-name).
+    Create a new Pull Request.
 
-    Create a new branch:
-
-    sh
-
-git checkout -b feature/your-feature-name
-
-Make your changes and commit them:
-
-sh
-
-git commit -m "Add your detailed commit message here"
-
-Push your changes to your fork:
-
-sh
-
-    git push origin feature/your-feature-name
-
-    Create a pull request against the main branch of the original repository.
-
-Please ensure your code follows our coding standards and includes appropriate tests.
 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+Acknowledgments
 
-Feel free to customize this README to match your specific project details and requirements.
+    Django - The web framework used.
+    Bootstrap - CSS framework for styling.
 
-vbnet
+Contact
 
-
-Remember to replace placeholders like `your-username`, `projectforge`, and `feature/your-feature-name` with your actual information. Additionally, you might need to modify the installation and setup instructions based on your project's specific dependencies and requirements.
+If you have any questions or feedback, please contact Ashok Prajapat
