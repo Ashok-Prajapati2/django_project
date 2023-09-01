@@ -1,0 +1,91 @@
+{%  extends 'base.html' %}  <!-- Extends the 'base.html' template -->
+
+{% block content %}  <!-- Defines a content block within the template -->
+
+    <title>Calculator</title>  <!-- Sets the title of the page -->
+
+    <style>
+        /* Add some basic styling to your calculator */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .calculator {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+        }
+        input[type="button"] {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 18px;
+        }
+        input[type="submit"] {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <form class="calculator" method="post">  <!-- Defines a form with the 'calculator' class and POST method -->
+        {% csrf_token %}  <!-- Adds a CSRF token for security -->
+
+        <!-- Input field for displaying calculator input and result -->
+        <input type="text" id="display" name='display' value={{ ans }}>
+        <br>
+
+        <!-- Calculator buttons -->
+        <input type="button" value="7" onclick="addToDisplay('7')">
+        <input type="button" value="8" onclick="addToDisplay('8')">
+        <input type="button" value="9" onclick="addToDisplay('9')">
+        <input type="button" value="+" onclick="addToDisplay('+')">
+        <br>
+        <input type="button" value="4" onclick="addToDisplay('4')">
+        <input type="button" value="5" onclick="addToDisplay('5')">
+        <input type="button" value="6" onclick="addToDisplay('6')">
+        <input type="button" value="-" onclick="addToDisplay('-')">
+        <br>
+        <input type="button" value="1" onclick="addToDisplay('1')">
+        <input type="button" value="2" onclick="addToDisplay('2')">
+        <input type="button" value="3" onclick="addToDisplay('3')">
+        <input type="button" value="*" onclick="addToDisplay('*')">
+        <br>
+        <input type="button" value="0" onclick="addToDisplay('0')">
+        <input type="button" value="C" onclick="clearDisplay()">
+        <input type="submit" value="=" onclick="calculate()">
+        <input type="button" value="/" onclick="addToDisplay('/')">
+    </form>
+
+    <script>
+        // Calculator functions
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        /* Function for performing calculations (currently commented out)
+        function calculate() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+        */
+    </script>
+</body>
+
+{% endblock content %}  <!-- Closes the content block -->
