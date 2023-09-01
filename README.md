@@ -1,9 +1,7 @@
 
-# Django Calculator Web App
+# Django Projects
 
 ![Calculator](https://raw.githubusercontent.com/Ashok-Prajapati2/django_project/main/screenshot.png)
-
-This is a simple web application built with Django that provides a calculator interface. Users can perform basic arithmetic operations such as addition, subtraction, multiplication, and division.
 
 ## Features
 
