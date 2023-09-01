@@ -64,7 +64,7 @@
 
 <div class="form">
   
-    <form  method="post" >
+    <form  method="post" action = {% url 'submitform'%} >
       {% csrf_token %}
       <div class="inputBox">
         <input type="text" name="email" value="{{ username }}" />
