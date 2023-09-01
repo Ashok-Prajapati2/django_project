@@ -24,4 +24,5 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('form/', views.form, name='form'),
     path('submitform/',views.submitform, name='submitform'),
+    path('calculator/',views.calculator, name='calculator'),
 ]

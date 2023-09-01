@@ -2,7 +2,7 @@
 {% block content %}
 <style>
     .form{
-        width: 300px;
+        width: 100%%;
         margin: 0 auto;
         padding: 20px;
         border: 1px solid #ccc;
@@ -74,6 +74,7 @@
         <input type="text" name="password" value="{{ passwd }}" />
         <label>Password</label>
       </div>
+      {{form}}
       <input type="submit" name="sign-in" value="Sign In" />
       <br><hr>
       <input type="text" name="usernames" value="{{ username }}" /> <!-- Added input field for username -->
