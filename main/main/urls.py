@@ -25,4 +25,5 @@ urlpatterns = [
     path('form/', views.form, name='form'),
     path('submitform/',views.submitform, name='submitform'),
     path('calculator/',views.calculator, name='calculator'),
+    path('coid/<id>', views.coid, name='coid'),
 ]

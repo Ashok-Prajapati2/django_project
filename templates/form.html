@@ -74,11 +74,11 @@
         <input type="text" name="password" value="{{ passwd }}" />
         <label>Password</label>
       </div>
+      {% comment %} django form {% endcomment %}
       {{form}}
+
       <input type="submit" name="sign-in" value="Sign In" />
-      <br><hr>
-      <input type="text" name="usernames" value="{{ username }}" /> <!-- Added input field for username -->
-      <input type="text" name="usernames" value="{{ passwd }}" />
+      
     </form>
   </div>
   

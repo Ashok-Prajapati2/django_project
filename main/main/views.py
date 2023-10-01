@@ -44,20 +44,30 @@ def submitform(request):
         }
     return HttpResponse(data['username'])  # Return the 'username' as an HTTP response
 
-# Define a view for a calculator
 def calculator(request):
     ans = None  # Initialize ans to None
+    list = ['ashok', 'ramesh', 'rahul']  # Renamed variable to 'my_list'
+    my_dict = [
+        {
+        'name': "ASHOK",
+        'm': 8696,  },
+        {
+        'name': "ASHOK",    
+        'm': 9312, 
+        }
+        ]
     if request.method == 'POST':
         try:
             display_value = request.POST.get('display', '')
             ans = eval(display_value)  # Calculate the result using eval
         except Exception as e:
-            # Handle any potential errors here, e.g., division by zero
             ans = 'Error'
-    return render(request, "calculator.html", {"ans": ans})  # Render the calculator.html template with the result
+
+    return render(request, "calculator.html", {"ans": ans, "list": list, 'dict': my_dict})
 
 
-
+def coid(request, id):
+    return HttpResponse(id)
 
 
 

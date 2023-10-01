@@ -66,6 +66,23 @@
         <input type="button" value="/" onclick="addToDisplay('/')">
     </form>
 
+
+</br>
+<table border="1">
+    <tr>
+        <th>name</th>
+        <th>mobile</th>
+    </tr>
+    {% for d in dict %}
+    <tr>
+        <td>{{ d.name }}</td>
+        <td>{{ d.m }}</td>
+    </tr>
+    {%endfor%}
+</table>
+    {%for n in list%}
+    <div><b>{{forloop.counter }}{{n}}</b></div>
+    {%endfor%}
     <script>
         // Calculator functions
         function addToDisplay(value) {
