@@ -3,11 +3,17 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from .forms import userForm
-
+from myapp.models import Service
 
 # Define a view for the homepage
 def homepage(request):
-    return render(request, "index.html")
+    data = Service.objects.all().order_by('title')[ :4]
+   
+    data = {
+        'data' : data
+    }
+   
+    return render(request, "index.html" , data )
 
 # Define a view for the 'about' page
 def about(request):

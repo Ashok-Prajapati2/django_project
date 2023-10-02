@@ -356,6 +356,19 @@
   </section>
 
   <!-- CTA -->
+
+  {% comment %} django  {% endcomment %}
+  <div class="container grid grid-4-cols">
+    {%for n in data %}
+    <div class="feature">
+      <ion-icon class="feature-icon" name="infinite-outline"></ion-icon>
+      {{n.iocn}}
+      <p class="feature-title">{{n.title}}</p>
+      <p class="feature-text">{{n.des}}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% comment %}  {% endcomment %}
   <section class="section-cta" id="cta">
     <div class="container">
       <div class="cta">
