@@ -4,18 +4,31 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from .forms import userForm
 from myapp.models import Service
-
+from  news.models import news
 # Define a view for the homepage
 def homepage(request):
     data = Service.objects.all().order_by('title')[ :4]
-   
+    newdata = news.objects.all().order_by('title')[ :4]
+    if request.method=='GET':
+        st = request.GET.get('ser')
+        if st != None:
+            data = Service.objects.filter(title__icontains=st)
     data = {
-        'data' : data
+        'data' : data,
+        'ndata': newdata
     }
    
     return render(request, "index.html" , data )
 
 # Define a view for the 'about' page
+def newsd(request,id):
+    newdata = news.objects.get(id = id)
+    data = {
+         'newst': newdata
+        
+    }
+    return render(request, "news.html",data)
+
 def about(request):
     if request.method == "GET":
         data = request.GET.get('data')

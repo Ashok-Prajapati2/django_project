@@ -4,6 +4,11 @@
 <main>
   <!-- HERO -->
   <section class="section-hero">
+    <marquee onmouseover='stop()' onmouseout='start()'>
+      {%for a in ndata %}
+      <a href="/newsdetials/{{a.id}}" class="btn btn-full margin-right-sm">{{a.title}}</a>
+      {%endfor%}
+    </marquee>
     <div class="hero">
       <div class="hero-text-box">
         <h1 class="heading-primary">A healthy meal delivered to your door, every single day</h1>
@@ -356,7 +361,10 @@
   </section>
 
   <!-- CTA -->
-
+<form form method='get'>
+  <input type='text' name='ser' value='' /> 
+  <input type='submit' value='search'/> 
+</form>
   {% comment %} django  {% endcomment %}
   <div class="container grid grid-4-cols">
     {%for n in data %}
@@ -366,6 +374,8 @@
       <p class="feature-title">{{n.title}}</p>
       <p class="feature-text">{{n.des}}</p>
     </div>
+    {%empty%}
+    <b>No Data found</b>
     {% endfor %}
   </div>
   {% comment %}  {% endcomment %}
