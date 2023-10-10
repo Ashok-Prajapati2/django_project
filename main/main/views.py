@@ -15,7 +15,8 @@ def homepage(request):
     
     
     
-    if request.method=='GET':
+    if request.method=='GET': 
+
         st = request.GET.get('ser')
         if st != None:
             sdata = Service.objects.filter(title__icontains=st)
