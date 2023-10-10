@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from main  import views
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage),
@@ -25,6 +24,8 @@ urlpatterns = [
     path('form/', views.form, name='form'),
     path('submitform/',views.submitform, name='submitform'),
     path('calculator/',views.calculator, name='calculator'),
-    path('coid/<id>', views.coid, name='coid'),
     path('newsdetials/<id>', views.newsd, name='news'),
+    path('coid/<id>', views.coid, name='coid'),
+   
+
 ]

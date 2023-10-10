@@ -13,6 +13,10 @@ def homepage(request):
         st = request.GET.get('ser')
         if st != None:
             data = Service.objects.filter(title__icontains=st)
+    # if request.method=='GET':
+    #     st = request.GET.get('ser')
+    #     if st != None:
+    #         data = Service.objects.filter(title=st)
     data = {
         'data' : data,
         'ndata': newdata
@@ -22,7 +26,7 @@ def homepage(request):
 
 # Define a view for the 'about' page
 def newsd(request,id):
-    newdata = news.objects.get(id = id)
+    newdata = news.objects.get(news_slug = id)
     data = {
          'newst': newdata
         

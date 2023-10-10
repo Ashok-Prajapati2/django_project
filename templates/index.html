@@ -6,7 +6,8 @@
   <section class="section-hero">
     <marquee onmouseover='stop()' onmouseout='start()'>
       {%for a in ndata %}
-      <a href="/newsdetials/{{a.id}}" class="btn btn-full margin-right-sm">{{a.title}}</a>
+      <a href="/newsdetials/{{a.news_slug}}" class="btn btn-full margin-right-sm">{{a.title}}</a>
+      {% comment %} <a href="/newsdetials/{{a.id}}" class="btn btn-full margin-right-sm">{{a.title}}</a> {% endcomment %}
       {%endfor%}
     </marquee>
     <div class="hero">
