@@ -5,27 +5,60 @@ from django.shortcuts import render
 from .forms import userForm
 from myapp.models import Service
 from  news.models import news
+from  savedata.models import Savedata
+from django.core.paginator import Paginator
+
 # Define a view for the homepage
 def homepage(request):
-    data = Service.objects.all().order_by('title')[ :4]
+    sdata = Service.objects.all().order_by('title')
     newdata = news.objects.all().order_by('title')[ :4]
+    
+    
+    
     if request.method=='GET':
         st = request.GET.get('ser')
         if st != None:
-            data = Service.objects.filter(title__icontains=st)
-    # if request.method=='GET':
-    #     st = request.GET.get('ser')
-    #     if st != None:
-    #         data = Service.objects.filter(title=st)
-    data = {
-        'data' : data,
-        'ndata': newdata
-    }
+            sdata = Service.objects.filter(title__icontains=st)
    
-    return render(request, "index.html" , data )
+    
+    context = {
+        'data' : sdata,
+        'ndata': newdata,
+       
+    }
+    return render(request, "index.html" , context )
+
+def service(request):
+    
+    sdata = Service.objects.all().order_by('title')
+    paginator = Paginator(sdata,2)
+    page_num = request.GET.get('page')
+    sdataf = paginator.get_page(page_num)
+    
+    if request.method=='GET':
+        st = request.GET.get('ser')
+        if st != None:
+            sdata = Service.objects.filter(title__icontains=st)
+   
+    context = {
+        'data' : sdata,
+        'sdata' : sdataf,
+        'page_num ':page_num 
+    }
+    return render(request, "service.html" , context )
 
 # Define a view for the 'about' page
+def savedata(request):
+   
+    if request.method == 'POST':
+        saved_username = request.POST.get('email')  # Retrieve 'email' parameter from POST request
+        saved_pass = request.POST.get('password')   # Retrieve 'password' parameter from POST request
+        if saved_username and saved_pass != '':
+            Savedata.objects.create(usertitle=saved_username, userdest=saved_pass)
+    return render(request, "savedata.html" )
+ 
 def newsd(request,id):
+    
     newdata = news.objects.get(news_slug = id)
     data = {
          'newst': newdata
@@ -87,6 +120,7 @@ def calculator(request):
             ans = 'Error'
 
     return render(request, "calculator.html", {"ans": ans, "list": list, 'dict': my_dict})
+
 
 
 def coid(request, id):

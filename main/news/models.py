@@ -10,4 +10,3 @@ class news(models.Model):
     
     
     news_slug = AutoSlugField(populate_from='title', unique=True, null=True, default=None)
-

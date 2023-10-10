@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'myapp',
     'news',
     'tinymce',
+   'savedata'
 ]
 
 MIDDLEWARE = [

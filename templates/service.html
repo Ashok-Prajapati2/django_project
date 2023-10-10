@@ -1,0 +1,50 @@
+{% include 'header.html' %}
+{% block content %}
+
+<form form method='get'>
+    {% comment %} {% csrf_token %} {% endcomment %}
+    <input type='text' name='ser' value='' /> 
+    <input type='submit' value='search'/> 
+  </form>
+    {% comment %} django  {% endcomment %}
+    <div class="container grid grid-4-cols">
+      {%for n in sdata %}
+      <div class="feature">
+        <ion-icon class="feature-icon" name="infinite-outline"></ion-icon>
+        {{n.iocn}}
+        <p class="feature-title">{{n.title}}</p>
+        <p class="feature-text">{{n.des}}</p>
+      </div>
+      {%empty%}
+      <b>No Data found</b>
+      {% endfor %}
+    </div>
+    
+
+  <nav aria-label="data">
+    <ul class="pagination">
+      <li class="page-item">
+        {% if sdata.has_previous %}
+          <a class="page-link" href="/service/?page=1" tabindex="-1">First</a>
+        {% endif %}
+      </li>
+      <li class="page-item">
+        {% if sdata.has_previous %}
+          <a class="page-link" href="/service/?page={{ sdata.previous_page_number }}">Previous</a>
+        {% endif %}
+      </li>
+      {% for page_num in sdata.paginator.page_range %}
+        <li class="page-item{% if sdata.number == page_num %} active{% endif %}">
+          <a class="page-link" href="/service/?page={{ page_num }}">{{ page_num }}</a>
+        </li>
+      {% endfor %}
+      <li class="page-item">
+        {% if sdata.has_next %}
+          <a class="page-link" href="/service/?page={{ sdata.next_page_number }}">Next</a>
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+  
+{% endblock %}
+{% include 'footer.html' %}

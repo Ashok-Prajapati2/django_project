@@ -1,0 +1,28 @@
+{% include 'header.html' %}
+{% block content %}
+
+<div class="form">
+  
+    <form  method="post" action = {% url 'savedata'%} >
+      {% csrf_token %}
+      <div class="inputBox">
+        <input type="text" name="email" />
+        <label>Email</label> <!-- Changed 'Username' to 'Email' for clarity -->
+      </div>
+      <div class="inputBox">
+        <input type="text" name="password"  />
+        <label>Password</label>
+      </div>
+      
+
+      <input type="submit" name="sign-in" value="Sign In" />
+      
+    </form>
+  </div>
+  
+  
+</div>
+
+{% endblock %}
+{% include 'footer.html' %}
+
