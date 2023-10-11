@@ -7,6 +7,6 @@ class news(models.Model):
     title = models.CharField(max_length=20)
     des = models.TextField(max_length=1000)
     dest = HTMLField()
-    
+    news_img = models.FileField(upload_to='media/', null = True , default=None)
     
     news_slug = AutoSlugField(populate_from='title', unique=True, null=True, default=None)

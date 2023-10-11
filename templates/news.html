@@ -8,6 +8,10 @@
     </p>
 
     {{newst.dest   | safe}}
+    {% if newst.news_img != ''%}
+        {{newst.news_img}}
+        <img src = "/media/{{newst.news_img}}/">
+        {% endif %}
 </div>
 
 {% endblock content %}
